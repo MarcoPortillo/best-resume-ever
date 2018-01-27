@@ -1,70 +1,81 @@
 /* #*/ export const PERSON = `
 name:
-  first: John
+  first: Marco
   middle:
-  last: Doe
+  last: Portillo
 about: Hi, my name is John Doe. I"m just about the most boring type of person you could
        possibly imagine. I like collecting leaves from the tree in my back yard and documenting
        each time I eat a peanut that is non-uniform. I am not a robot. Please hire me.
 position: Software Developer
 
 birth:
-  year: 1990
-  location: New York
+  year: 1995
+  location: Maracaibo, Venezuela
 
 experience:
-- company: Company A
-  position: Developer
-  timeperiod: since January 2016
-  description: Programming and watching cute cat videos.
+- company: Mood - Social Media Agency
+  position: Mobile Developer
+  technologies: React native, Android, PHP, MySQL, git
+  timeperiod: March 2017 - Present
+  location: Maracaibo, Venezuela
+  # description: Desarrollador en aplicación móvil android CloudCampus. Desarrollador de proyectos en Angular, PHP y Node.js.
 
-- company: Company B
-  position: Frontend Developer
-  timeperiod: January 2015 - December 2015
-  description: Fulfillment of extremely important tasks.
+- company: CPS División de software
+  position: Software Engineer
+  technologies: HTML,CSS,PHP,Javascript,Postgresql, git
+  timeperiod: August 2016 - February 2017
+  location: Maracaibo, Venezuela
+  # description: Desarrollo de paginas web utilizando HTML, CSS y JavaScript.
 
-- company: Company C
-  position: Trainee
-  timeperiod: March 2014 - December 2014
-  description: Making coffee and baking cookies.
+- company: B.O.D. Banco Occidental de Descuentos
+  position: Intern - IT Support
+  technologies:
+  timeperiod: May 2016 - July 2016
+  location: Maracaibo, Venezuela
+  # description: Desarrollo de paginas web utilizando HTML, CSS y JavaScript.
 
 education:
-- degree: Master of Arts
-  timeperiod: March 2012 - December 2013
-  description: Major in Hacking and Computer Penetration, University A, New York, USA.
+- degree: Computer Engineer
+  timeperiod: 2012 - 2016
+  description:  Universidad Rafael Belloso Chacín. Maracaibo, Venezuela. 
+  latin: Cum laude, 18.4 points out of 20.
 
-- degree: Bachelor of Science
-  timeperiod: March 2009 - December 2011
-  description: Major in Engineering, University B, Los Angeles, USA.
+- degree: High School
+  timeperiod: 2012
+  description: Martin Luther King - High School Diploma
 
 # skill level goes 0 to 100
 skills:
-- name: HTML5
-  level: 99
-- name: CSS3
-  level: 95
+- name: Android
+  level: 75
+- name: Java
+  level: 75
+- name: PHP
+  level: 85
 - name: JavaScript
-  level: 97
-- name: Node.js
-  level: 93
-- name: Angular 2
-  level: 60
-- name: TypeScript
   level: 80
-- name: ES.Next
+- name: React
+  level: 65
+- name: HTML
+  level: 80
+- name: CSS
+  level: 55
+- name: MySQL
+  level: 85
+- name: Git
   level: 70
-- name: Docker
-  level: 99
-knowledge: Also proficient in Adobe Photoshop and Illustrator, grew up bilingual
-  (English and Klingon).
+ # knowledge: También hábil en Adobe Photoshop, Illustrator y After Effects.
 
 contact:
-  email: john.doe@email.com
-  phone: 0123 456789
-  street: 1234 Broadway
-  city: New York
-  website: johndoe.com
-  github: johnyD
+  email: marco.portillo05@gmail.com
+  phone: +58 04246962079
+  # street: Estado de Israel 4621
+  # city: Buenos Aires
+  # website: # johndoe.com
+  github: MarcoPortillo
+  # bitbucket: josueMavarez
+  telegram: MarcoPortillo05
+  # skype: jdma0512
 # en, de, fr, pt, ca, cn, it, es, th, pt-br, ru, sv, id, hu, pl, ja, ka, nl, he, zh-tw, lt, ko, el
-lang: en
+lang: es
 `

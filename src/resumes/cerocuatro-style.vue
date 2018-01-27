@@ -1,38 +1,38 @@
 <template>
 <div class="resume" id="resume1">
-  <div class="row text-center">
-    <span class="name">{{person.name.first}} {{person.name.middle}} {{person.name.last}}</span>
-  </div>
-  <div class="row text-center">
-    <p class="position center">{{person.position}}</p>
-  </div>
-  <div class="row">
-    <div class="image center">
-      <div class="img"></div>
+  <div class="black-bar">
+    <div class="row text-center">
+      <span class="name">{&nbsp&nbsp{{person.name.first}}{{person.name.last}}&nbsp&nbsp}</span>
+    </div>
+    <div class="row text-center">
+      <p class="position center">{{person.position}}</p>
     </div>
   </div>
   <div class="left half">
-    <div class="experience">
-      <h3>{{ lang.headings.experience }}</h3>
+    <div style=margin-right:-10px; class="experience">
+      <h3 class="uppercase">{{ lang.headings.experience }}</h3>
       <div class="experience-block" v-for="experience in person.experience" :key="experience.company">
+        
         <span class="company"> {{experience.company}} </span>
-        <span class="job-title"> {{experience.position}} </span>
         <span class="time-period"> {{experience.timeperiod}}</span>
-        <span class="job-description"> {{experience.description}} </span>
+        <span class="job-title"> {{experience.position}} </span>
+        <!-- <span class="job-technologies">{{experience.technologies}}</span> -->
+        <span v-if="experience.description" class="job-description"> {{experience.description}} </span>
+        <span class="job-location"> {{experience.location}} </span>
       </div>
     </div>
-    <div class="contact">
-      <h3>{{ lang.headings.contact }}</h3>
-      <table>
+    <div style=margin-right:-10px; class="contact">
+      <h3 style=margin-right:-10px; class="uppercase">{{ lang.headings.contact }}</h3>
+      <table style=margin-right:-15px;>
         <tr>
-          <td><a :href="'mailto:'+person.contact.email">{{person.contact.email}}</a></td>
+          <td><a :href="'mailto:'+person.contact.email" target="_blank">{{person.contact.email}}</a></td>
           <td><i class="fa fa-envelope" aria-hidden="true"></i></td>
         </tr>
-        <tr>
+        <tr style=margin-right:-10px; v-if="person.contact.phone">
           <td><a :href="'tel:'+person.contact.phone">{{person.contact.phone}}</a></td>
           <td><i class="fa fa-phone" aria-hidden="true"></i></td>
         </tr>
-        <tr>
+        <tr v-if="person.contact.street">
           <td>{{person.contact.street}} <br> {{person.contact.city}}</td>
           <td><i class="fa fa-home" aria-hidden="true"></i></td>
         </tr>
@@ -40,12 +40,20 @@
           <td><a :href="person.contact.website">{{person.contact.website}}</a></td>
           <td><i class="fa fa-globe" aria-hidden="true"></i></td>
         </tr>
+        <tr v-if="person.contact.telegram">
+          <td><a :href="'https://t.me/'+person.contact.telegram" target="_blank">t.me/{{person.contact.telegram}}</a></td>
+          <td><i class="fa fa-telegram" aria-hidden="true"></i></td>
+        </tr>
+        <tr v-if="person.contact.skype">
+          <td>{{person.contact.skype}}</td>
+          <td><i class="fa fa-skype" aria-hidden="true"></i></td>
+        </tr>
         <tr v-if="person.contact.github">
-          <td><a :href="'https://github.com/'+person.contact.github">https://github.com/{{person.contact.github}}</a></td>
+          <td><a :href="'https://github.com/'+person.contact.github" target="_blank">github.com/{{person.contact.github}}</a></td>
           <td><i class="fa fa-github" aria-hidden="true"></i></td>
         </tr>
         <tr v-if="person.contact.bitbucket">
-          <td><a :href="'https://bitbucket.org/'+person.contact.bitbucket">https://bitbucket.org/{{person.contact.bitbucket}}</a></td>
+          <td><a :href="'https://bitbucket.org/'+person.contact.bitbucket" target="_blank">bitbucket.org/{{person.contact.bitbucket}}</a></td>
           <td><i class="fa fa-bitbucket" aria-hidden="true"></i></td>
         </tr>
       </table>
@@ -53,13 +61,15 @@
   </div>
   <div class="right half">
     <div class="education">
-      <h3>{{ lang.headings.education }}</h3>
-      <div class="education-block" v-for="education in person.education" :key="education.degree">
+      <h3 style=margin-left:-10px; class="uppercase">{{ lang.headings.education }}</h3>
+      <div style=margin-left:-10px; class="education-block" v-for="education in person.education" :key="education.degree">
         <span class="degree">{{education.degree}}</span>
         <span class="degree-description">{{education.description}}</span>
+        <span class="degree-timeperiod">{{education.timeperiod}}</span>
+        <span class="degree-latin">{{education.latin}}</span>
       </div>
     </div>
-    <h3>{{ lang.headings.skills }}</h3>
+    <h3 style=margin-left:-10px;margin-top:-9px;>{{ lang.headings.skills }}</h3>
     <div class="skills">
       <div class="skill-block" v-for="skill in person.skills" :key="skill.name">
         <span class="skill">{{skill.name}}</span>
@@ -77,42 +87,61 @@
 import Vue from 'vue';
 import { getVueOptions } from './options';
 
-let name = 'left-right';
+let name = 'cerocuatro-style';
 export default Vue.component(name, getVueOptions(name));
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
+@mainColor: #303030;
 #resume1 {
-  font-family:'Source Sans Pro', sans-serif;
-  font-size:20px;
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 224px;
+    bottom: 24px;
+    left: 50%;
+    border-left: 2px solid @mainColor;
+    transform: translate(-50%);
+  }
+  font-family:'Roboto' !important;
+  font-size:18px;
   padding-bottom:50px;
+  .uppercase {
+    text-transform:uppercase;
+  }
   a, a:focus, a:hover, a:visited {
     color:#616161;
   }
   h3 {
     margin-bottom:0;
+    color: @mainColor;
   }
   span {
     display:inline-block;
+  }
+  .black-bar {
+    height: 200px;
+    background-color: @mainColor;
   }
   .row {
     width:100%;
   }
   .half {
-    width:44%;
+    width:42%;
   }
   .half.left {
     float:left;
     text-align:right;
     padding-left:4%;
-    padding-right:2%;
+    padding-right:4%;
   }
   .half.right {
     float:right;
     text-align:left;
     padding-right:4%;
-    padding-left:2%;
+    padding-left:4%;
   }
   .center {
     margin-left:auto;
@@ -122,22 +151,23 @@ export default Vue.component(name, getVueOptions(name));
     text-align:center;
   }
   .name {
-    border:1px solid black;
-    text-transform:uppercase;
-    padding:10px 20px;
-    margin-top:80px;
+    // border:1px solid black;
+    text-transform:lowercase;
+    padding:68px 0px 0px 0px;
+    // margin-top:80px;
     margin-bottom:5px;
-    font-family:'Open Sans', sans-serif;
-    font-size:35px;
-    font-weight:600;
-    letter-spacing:10px;
+    // font-family:'Open Sans', sans-serif;
+    font-size:45px;
+    font-weight:500;
+    color: #FFFF;
+    letter-spacing:2px;
   }
   .position {
     text-transform:uppercase;
-    font-family:'Open Sans', sans-serif;
-    font-size:smaller;
-    color:#757575;
+    font-size:18px;
+    color: #FFFF;
     margin-bottom:40px;
+    letter-spacing:2px;
   }
   .image {
     width:100px;
@@ -161,9 +191,8 @@ export default Vue.component(name, getVueOptions(name));
       float:right;
       margin-top:5px;
       color:#616161;
-      font-size:20px;
       i {
-        padding:2px;
+        padding:4px;
         color:#616161;
       }
       tr td:nth-child(2) {
@@ -177,31 +206,40 @@ export default Vue.component(name, getVueOptions(name));
   }
   .experience .experience-block span.company {
     font-weight:bold;
-    padding-bottom:5px;
-    padding-top:10px;
+    padding-bottom:0px;
+    padding-top: 15px;
     color:#424242;
   }
-  .experience .experience-block span.job-title {
+  .experience .experience-block span.time-period {
     font-style:italic;
   }
   .education-block span {
     color:#616161;
+
+  }
+  .education-block span.degree-timeperiod {
+    width: 100%;
+    font-style:italic;
   }
   .education-block span.degree {
     font-weight:bold;
-    padding-bottom:5px;
-    padding-top:10px;
     color:#424242;
+    padding-top:15px;
+  }
+  .degree-latin {
+    margin-bottom: -100px;
   }
   .skills-other {
     color:#616161;
     margin-bottom:10px;
   }
-  .skills {
-    margin-top:20px;
-    margin-bottom:10px;
+    .skills {
+    margin-top:10px;
+    margin-bottom:20px;
+    margin-left:-10px;
+    padding-right:-5px;
     .skill-block {
-      padding-bottom:10px;
+      padding-bottom:5px;
       display:inline-block;
       .skill {
         width:100px;
@@ -214,9 +252,9 @@ export default Vue.component(name, getVueOptions(name));
         overflow:hidden;
         height:8px;
         border-radius:3px;
-        margin-top:6.5px;
-        position:relative;
         width:249px;
+        margin-left: 40px;
+        margin-top: -16.5px;
         .level {
           background:#757575;
           height:100%;

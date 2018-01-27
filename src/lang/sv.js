@@ -1,8 +1,11 @@
-const lang = {
-  contact: 'Kontakt',
-  experience: 'Arbetslivserfarenhet',
-  education: 'Utbildning',
-  skills: 'Kunskaper',
-  about: 'Om mig'
+/* eslint-disable */
+const sv = {
+  headings: {
+    contact: 'Kontakt',
+    experience: 'Arbetslivserfarenhet',
+    education: 'Utbildning',
+    skills: 'Kunskaper',
+    about: 'Om mig'
+  }
 };
-export default lang;
+export default sv;

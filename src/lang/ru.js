@@ -1,9 +1,13 @@
-const lang = {
-  contact: 'Контакты',
-  experience: 'Опыт',
-  education: 'Образование',
-  skills: 'Навыки',
-  about: 'Обо мне'
+﻿/* eslint-disable */
+
+const ru = {
+    headings: {
+        contact: "Контакты",
+        experience: "Опыт",
+        education: "Образование",
+        skills: "Навыки",
+        about: "Обо мне"
+    }
 };
 
-export default lang;
+export default ru;

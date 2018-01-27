@@ -1,8 +1,11 @@
-const lang = {
-  contact: 'Kontaktai',
-  experience: 'Patirtis',
-  education: 'Išsilavinimas',
-  skills: 'Įgūdžiai',
-  about: 'Apie mane'
+/* eslint-disable */
+const lt = {
+  headings: {
+    contact: 'Kontaktai',
+    experience: 'Patirtis',
+    education: 'Išsilavinimas',
+    skills: 'Įgūdžiai',
+    about: 'Apie mane'
+  }
 };
-export default lang;
+export default lt;

@@ -1,8 +1,11 @@
-const lang = {
-  contact: 'Contacto',
-  experience: 'Experiencia',
-  education: 'Educación',
-  skills: 'Habilidades',
-  about: 'Sobre mi'
+/* eslint-disable */
+const es = {
+  headings: {
+    contact: 'Contact',
+    experience: 'Experience',
+    education: 'Education',
+    skills: 'Skills',
+    about: 'About'
+  }
 };
-export default lang;
+export default es;

@@ -62,6 +62,14 @@
         </div>
       </router-link>
     </div>
+    <div class="preview">
+      <router-link v-bind:to="'/resume/cerocuatro-style'">
+        <div class="preview-wrapper">
+          <img src="../assets/preview/resume-left-right-rtl.png" />
+          <span>cerocuatro-style</span>
+        </div>
+      </router-link>
+    </div>
   </div>
 </div>
 </template>
